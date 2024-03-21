@@ -27,11 +27,13 @@ void Player::Update(GLFWwindow* window)
 {
     b2Vec2 moveVelocity(0, 0);
 
-    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS && m_JumpCount > 0)
+    if (glfwGetKey(window, GLFW_KEY_SPACE) && m_JumpCount > 0 && m_JumpPrimed)
     {
+        m_JumpPrimed = false;
         moveVelocity.y += m_JumpPower;
         m_JumpCount--;
     }
+    else if (!glfwGetKey(window, GLFW_KEY_SPACE)) m_JumpPrimed = true;
 
     if (glfwGetKey(window, GLFW_KEY_A) || glfwGetKey(window, GLFW_KEY_D))
     {
@@ -48,8 +50,6 @@ void Player::Update(GLFWwindow* window)
     else m_Body->SetLinearVelocity(b2Vec2(m_Body->GetLinearVelocity().x * 0.7, m_Body->GetLinearVelocity().y));
 
     m_Body->SetLinearVelocity(m_Body->GetLinearVelocity() + moveVelocity);
-
-    //if (m_Body->GetContactList() != nullptr) m_JumpCount = m_MaxJumps;
 }
 
 void Player::Draw(Renderer &renderer)
@@ -59,12 +59,19 @@ void Player::Draw(Renderer &renderer)
 
 void Player::BeginContact(b2Contact* contact)
 {
-    if (contact->GetFixtureA()->GetBody()->GetUserData().pointer == m_ID)
+    unsigned int aID = contact->GetFixtureA()->GetBody()->GetUserData().pointer;
+    unsigned int bID = contact->GetFixtureB()->GetBody()->GetUserData().pointer;
+
+    if (aID != m_ID)
     {
-        if (m_entityList[contact->GetFixtureB()->GetBody()->GetUserData().pointer]->m_Tag == TERRAIN)
-        {
-            m_JumpCount = m_MaxJumps;
-        }
+        unsigned int temp = aID;
+        aID = bID;
+        bID = temp;
+    }
+
+    if (m_entityList[bID]->m_Tag == FLOOR)
+    {
+        m_JumpCount = m_MaxJumps;
     }
 }
 
