@@ -50,10 +50,10 @@ int main()
     Player player(world);
     world.SetContactListener(&player);
 
-    Terrain ground(world, { 0, -10 }, { 32, 10 }, "H:\\My Drive\\Project\\MoreOpenGLLearning\\Assets\\container.jpg");
-    Terrain floor(world, { 0, -5 }, { 32, 1 }, "H:\\My Drive\\Project\\MoreOpenGLLearning\\Assets\\wall.jpg", true);
+    Terrain ground(world, { 0, -10 }, { 32, 10 }, "container.jpg");
+    Terrain floor(world, { 0, -5 }, { 32, 1 }, "wall.jpg", true);
 
-    Terrain box(world, { -8, 0 }, { 10, 3 }, "H:\\My Drive\\Project\\MoreOpenGLLearning\\Assets\\container.jpg");
+    Terrain box(world, { -8, 0 }, { 10, 3 }, "container.jpg");
 
     while (!glfwWindowShouldClose(window))
     {

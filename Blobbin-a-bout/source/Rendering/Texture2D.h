@@ -1,14 +1,17 @@
 #pragma once
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <string>
 
 class Texture
 {
 private:
-	unsigned int id;
+	static std::string m_BasePath;
+
+	unsigned int m_ID;
 
 public:
-	Texture(const char* texturePath);
+	Texture(const std::string texturePath);
 	void BindTexture();
 	unsigned int GetID();
 };
