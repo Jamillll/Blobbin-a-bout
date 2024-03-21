@@ -3,7 +3,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
-std::string Texture::m_BasePath = "C:\\Programs\\Blobbin-a-bout\\Blobbin-a-bout\\Assets\\";
+std::string Texture::m_BasePath = ".\\Assets\\";
 
 Texture::Texture(std::string texturePath)
 {
