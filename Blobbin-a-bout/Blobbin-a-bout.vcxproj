@@ -154,6 +154,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="source\Entities\Entity.h" />
+    <ClInclude Include="source\Entities\LevelManager.h" />
     <ClInclude Include="source\Entities\Player.h" />
     <ClInclude Include="source\Entities\Terrain.h" />
     <ClInclude Include="source\Rendering\Rectangle.h" />
@@ -166,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Entities\Entity.cpp" />
+    <ClCompile Include="source\Entities\LevelManager.cpp" />
     <ClCompile Include="source\Entities\Player.cpp" />
     <ClCompile Include="source\Entities\Terrain.cpp" />
     <ClCompile Include="source\EntryPoint.cpp" />

@@ -11,6 +11,7 @@
 #include "Entities/Entity.h"
 #include "Entities/Player.h"
 #include "Entities/Terrain.h"
+#include "Entities/LevelManager.h"
 
 int main()
 {
@@ -38,13 +39,8 @@ int main()
         return -1;
     }
 
-    Renderer renderer;
-
     b2Vec2 gravity(0.001f, -40.0f);
     float timeStep = 1.0f / 60.0f;
-    int32 velocityIterations = 6;
-    int32 positionIterations = 2;
-
     b2World world(gravity);
 
     Player player(world);
@@ -55,6 +51,9 @@ int main()
 
     Terrain box(world, { -8, 0 }, { 10, 3 }, "container.jpg");
 
+    Renderer renderer;
+    LevelManager levelManager(&renderer, &player);
+
     while (!glfwWindowShouldClose(window))
     {
         renderer.ClearScreen();
@@ -62,7 +61,7 @@ int main()
         Entity::UpdateAll(window);
         Entity::DrawAll(renderer);
 
-        world.Step(timeStep, velocityIterations, positionIterations);
+        world.Step(timeStep, 6, 2);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

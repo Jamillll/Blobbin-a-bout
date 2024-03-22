@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(b2World& world) : Entity()
+Player::Player(b2World& world)
 {
     b2BodyDef bodyDef;
 

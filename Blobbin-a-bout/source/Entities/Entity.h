@@ -17,6 +17,7 @@ public:
 		PLAYER = 1,
 		TERRAIN = 2,
 		FLOOR = 3,
+		MANAGER = 4,
 	};
 
 	Entity();
