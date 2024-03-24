@@ -34,6 +34,7 @@ void LevelManager::TEMP_DELETE_LEVEL()
 void LevelManager::SetLevel(Level levelToAdd)
 {
 	m_CurrentLevel = levelToAdd;
+	m_Player->m_Body->SetTransform(b2Vec2(m_CurrentLevel.spawnPoint.x, m_CurrentLevel.spawnPoint.y), 0);
 }
 
 void LevelManager::DeleteLevel()
