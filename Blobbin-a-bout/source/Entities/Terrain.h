@@ -6,8 +6,8 @@ class Terrain : public Entity
 {
 private:
 	Texture* m_Texture = nullptr;
-	b2Body* m_Body = nullptr;
 	Vec2 m_Size;
+	b2Body* m_Body = nullptr;
 
 public:
 	Terrain(b2World& world, Vec2 position, Vec2 size, const char* texturePath, bool isFloor);

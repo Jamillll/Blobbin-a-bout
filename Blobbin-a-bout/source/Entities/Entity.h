@@ -8,6 +8,8 @@ class Entity
 {
 public:
 	static std::vector<Entity*> m_entityList;
+	static b2World* m_World;
+
 	unsigned int m_ID;
 	unsigned int m_Tag = ENTITY;
 

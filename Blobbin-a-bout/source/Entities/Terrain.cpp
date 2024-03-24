@@ -41,5 +41,6 @@ void Terrain::Draw(Renderer& renderer)
 
 Terrain::~Terrain()
 {
+    m_World->DestroyBody(m_Body);
     delete m_Texture;
 }

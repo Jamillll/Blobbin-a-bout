@@ -43,16 +43,31 @@ int main()
     float timeStep = 1.0f / 60.0f;
     b2World world(gravity);
 
+    Entity::m_World = &world;
+
     Player player(world);
     world.SetContactListener(&player);
 
+    Renderer renderer;
+    //LevelManager levelManager(&renderer, &player);
+
+    //Level testLevel;
+    ////Add Level
+    //{
+    //    testLevel.spawnPoint = { 0, 0 };
+
+    //    
+
+    //    testLevel.contents.push_back(&ground);
+    //    testLevel.contents.push_back(&floor);
+    //    testLevel.contents.push_back(&box);
+    //}
+
     Terrain ground(world, { 0, -10 }, { 32, 10 }, "container.jpg");
     Terrain floor(world, { 0, -5 }, { 32, 1 }, "wall.jpg", true);
-
     Terrain box(world, { -8, 0 }, { 10, 3 }, "container.jpg");
 
-    Renderer renderer;
-    LevelManager levelManager(&renderer, &player);
+    //levelManager.TEMP_ADD_LEVEL(testLevel);
 
     while (!glfwWindowShouldClose(window))
     {

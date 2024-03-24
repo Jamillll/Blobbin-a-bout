@@ -89,4 +89,5 @@ void Player::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
 
 Player::~Player()
 {
+    m_World->DestroyBody(m_Body);
 }
