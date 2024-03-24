@@ -30,5 +30,5 @@ public:
 	virtual void Update(GLFWwindow* window);
 	virtual void Draw(Renderer& renderer);
 
-	~Entity();
+	virtual ~Entity();
 };

@@ -21,24 +21,27 @@ void LevelManager::ReloadLevel()
 {
 }
 
-void LevelManager::TEMP_ADD_LEVEL(Vec2 spawnPoint, std::vector<Entity*> contents)
+void LevelManager::TEMP_SET_LEVEL(Level levelToAdd)
 {
-	AddLevel(spawnPoint, contents);
+	SetLevel(levelToAdd);
 }
 
-void LevelManager::TEMP_ADD_LEVEL(Level levelToAdd)
+void LevelManager::TEMP_DELETE_LEVEL()
 {
-	AddLevel(levelToAdd);
+	DeleteLevel();
 }
 
-void LevelManager::AddLevel(Vec2 spawnPoint, std::vector<Entity*> contents)
+void LevelManager::SetLevel(Level levelToAdd)
 {
-	AddLevel({spawnPoint, contents});
+	m_CurrentLevel = levelToAdd;
 }
 
-void LevelManager::AddLevel(Level levelToAdd)
+void LevelManager::DeleteLevel()
 {
-	m_Levels.push_back(levelToAdd);
+	for (size_t i = 0; i < m_CurrentLevel.contents.size(); i++)
+	{
+		delete m_CurrentLevel.contents[i];
+	}
 }
 
 LevelManager::~LevelManager()

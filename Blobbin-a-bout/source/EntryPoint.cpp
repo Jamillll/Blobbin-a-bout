@@ -49,25 +49,22 @@ int main()
     world.SetContactListener(&player);
 
     Renderer renderer;
-    //LevelManager levelManager(&renderer, &player);
+    LevelManager levelManager(&renderer, &player);
 
-    //Level testLevel;
-    ////Add Level
-    //{
-    //    testLevel.spawnPoint = { 0, 0 };
+    Level testLevel;
+    {
+        testLevel.spawnPoint = { 0, 0 };
 
-    //    
+        Terrain* ground = new Terrain(world, { 0, -10 }, { 32, 10 }, "container.jpg");
+        Terrain* floor = new Terrain(world, { 0, -5 }, { 32, 1 }, "wall.jpg", true);
+        Terrain* box = new Terrain(world, { -8, 0 }, { 10, 3 }, "container.jpg");
 
-    //    testLevel.contents.push_back(&ground);
-    //    testLevel.contents.push_back(&floor);
-    //    testLevel.contents.push_back(&box);
-    //}
+        testLevel.contents.push_back(ground);
+        testLevel.contents.push_back(floor);
+        testLevel.contents.push_back(box);
+    }
 
-    Terrain ground(world, { 0, -10 }, { 32, 10 }, "container.jpg");
-    Terrain floor(world, { 0, -5 }, { 32, 1 }, "wall.jpg", true);
-    Terrain box(world, { -8, 0 }, { 10, 3 }, "container.jpg");
-
-    //levelManager.TEMP_ADD_LEVEL(testLevel);
+    levelManager.TEMP_SET_LEVEL(testLevel);
 
     while (!glfwWindowShouldClose(window))
     {
