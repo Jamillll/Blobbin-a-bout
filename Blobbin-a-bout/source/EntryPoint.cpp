@@ -28,7 +28,7 @@ int main()
     }
 
     glfwMakeContextCurrent(window);
-    glClearColor(1, 1, 1, 1.0f);
+    glClearColor(0.5f, 0.75f, 0.9f, 1.0f);
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -55,13 +55,9 @@ int main()
     {
         testLevel.spawnPoint = { 0, 0 };
 
-        Terrain* ground = new Terrain(world, { 0, -10 }, { 32, 10 }, "container.jpg");
-        Terrain* floor = new Terrain(world, { 0, -5 }, { 32, 1 }, "wall.jpg", true);
-        Terrain* box = new Terrain(world, { -8, 0 }, { 10, 3 }, "container.jpg");
-
-        testLevel.contents.push_back(ground);
-        testLevel.contents.push_back(floor);
-        testLevel.contents.push_back(box);
+        testLevel.contents.push_back(new Terrain(world, { 0, -10 }, { 32, 10 }, "container.jpg"));
+        testLevel.contents.push_back(new Terrain(world, { 0, -5 }, { 32, 1 }, "wall.jpg", true));
+        testLevel.contents.push_back(new Terrain(world, { -8, 0 }, { 10, 3 }, "container.jpg"));
     }
 
     levelManager.TEMP_SET_LEVEL(testLevel);
