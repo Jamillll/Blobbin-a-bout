@@ -8,10 +8,10 @@ Texture::Texture(std::string texturePath)
 	glGenTextures(1, &m_ID);
 	glBindTexture(GL_TEXTURE_2D, m_ID);
 
-	std::string fullPath = m_BasePath + texturePath;
+	m_UniquePath = texturePath;
 
 	int width, height, nrChannels;
-	unsigned char* textureData = stbi_load(fullPath.c_str() , &width, &height, &nrChannels, 0);
+	unsigned char* textureData = stbi_load(EvaluatedPath().c_str(), &width, &height, &nrChannels, 0);
 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, textureData);
 	glGenerateMipmap(GL_TEXTURE_2D);

@@ -17,18 +17,17 @@ void LevelManager::NextLevel()
 {
 }
 
-void LevelManager::LoadLevel()
-{
-}
-
 void LevelManager::ReloadLevel()
 {
 }
 
-void LevelManager::SetLevel(Level levelToAdd)
+void LevelManager::SetLevel(const char* levelToAdd)
 {
-	m_CurrentLevel = levelToAdd;
-	m_Player->m_Body->SetTransform(b2Vec2(m_CurrentLevel.spawnPoint.x, m_CurrentLevel.spawnPoint.y), 0);
+	if (m_CurrentLevel != nullptr) delete m_CurrentLevel;
+
+	// TODO: Add a fancy transition animation maybe??
+
+	m_CurrentLevel = new Level(levelToAdd);
 }
 
 LevelManager::~LevelManager()

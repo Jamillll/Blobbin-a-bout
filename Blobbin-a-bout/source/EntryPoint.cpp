@@ -52,7 +52,7 @@ int main()
     Renderer renderer;
     //LevelManager levelManager(&renderer, &player);
 
-    Level level(world, "Levels/TestScene.txt");
+    Level level("Levels/TestScene.txt");
 
     while (!glfwWindowShouldClose(window))
     {

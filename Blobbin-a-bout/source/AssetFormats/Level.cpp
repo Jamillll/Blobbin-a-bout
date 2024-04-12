@@ -10,11 +10,13 @@ Level::Level()
 	spawnPoint = { 0, 0 };
 }
 
-Level::Level(b2World & world, std::string path)
+Level::Level(std::string path)
 {
 	using namespace std;
 
-	fstream file(m_BasePath + path);
+	m_UniquePath = path;
+
+	fstream file(EvaluatedPath());
 	string output;
 
 	while (getline(file, output))
@@ -37,12 +39,12 @@ Level::Level(b2World & world, std::string path)
 			break;
 
 		case '2': // Terrain
-			toPush = new Terrain(world, ParseVec2(entries[1]), ParseVec2(entries[2]), SlightlyParseString(entries[3]).data());
+			toPush = new Terrain(*Entity::m_World, ParseVec2(entries[1]), ParseVec2(entries[2]), SlightlyParseString(entries[3]).data());
 			contents.push_back(toPush);
 			break;
 
 		case '3': // Floor
-			toPush = new Terrain(world, ParseVec2(entries[1]), ParseVec2(entries[2]), SlightlyParseString(entries[3]).data(), true);
+			toPush = new Terrain(*Entity::m_World, ParseVec2(entries[1]), ParseVec2(entries[2]), SlightlyParseString(entries[3]).data(), true);
 			contents.push_back(toPush);
 			break;
 		}

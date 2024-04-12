@@ -13,7 +13,7 @@ private:
 	Player* m_Player = nullptr;
 	Vec3 m_CameraOffset = { 0, 0, 0 };
 
-	Level m_CurrentLevel;
+	Level* m_CurrentLevel = nullptr;
 
 public:
 	LevelManager(Renderer* renderer, Player* player);
@@ -21,10 +21,8 @@ public:
 	void Update(GLFWwindow* window);
 
 	void NextLevel();
-	void LoadLevel();
 	void ReloadLevel();
-
-	void SetLevel(Level levelToAdd);
+	void SetLevel(const char* levelToAdd);
 
 	~LevelManager();
 

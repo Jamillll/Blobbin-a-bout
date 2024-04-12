@@ -13,7 +13,7 @@ public:
 	std::vector<Entity*> contents;
 
 	Level();
-	Level(b2World& world, std::string path);
+	Level(std::string path);
 	~Level();
 
 public:
