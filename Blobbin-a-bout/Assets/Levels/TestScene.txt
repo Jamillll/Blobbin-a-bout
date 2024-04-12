@@ -4,4 +4,7 @@
 
 2; 0, -10; 32, 10; "container.jpg"
 3; 0, -5; 32, 1; "wall.jpg"
+
 2; -8, 0; 10, 3; "container.jpg"
+2;  8, 0; 10, 3; "container.jpg"
+2; 0, 5; 10, 3; "container.jpg"

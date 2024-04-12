@@ -49,6 +49,14 @@ Level::Level(b2World & world, std::string path)
 	}
 }
 
+Level::~Level()
+{
+	for (size_t i = 0; i < contents.size(); i++)
+	{
+		delete contents[i];
+	}
+}
+
 Vec2 Level::ParseVec2(std::string input)
 {
 	using namespace std;

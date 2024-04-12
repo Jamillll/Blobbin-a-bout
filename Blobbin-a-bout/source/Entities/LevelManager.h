@@ -24,12 +24,9 @@ public:
 	void LoadLevel();
 	void ReloadLevel();
 
-	void TEMP_SET_LEVEL(Level levelToAdd);
-	void TEMP_DELETE_LEVEL();
+	void SetLevel(Level levelToAdd);
 
 	~LevelManager();
 
 private:
-	void SetLevel(Level levelToAdd);
-	void DeleteLevel();
 };

@@ -17,32 +17,18 @@ void LevelManager::NextLevel()
 {
 }
 
+void LevelManager::LoadLevel()
+{
+}
+
 void LevelManager::ReloadLevel()
 {
-}
-
-void LevelManager::TEMP_SET_LEVEL(Level levelToAdd)
-{
-	SetLevel(levelToAdd);
-}
-
-void LevelManager::TEMP_DELETE_LEVEL()
-{
-	DeleteLevel();
 }
 
 void LevelManager::SetLevel(Level levelToAdd)
 {
 	m_CurrentLevel = levelToAdd;
 	m_Player->m_Body->SetTransform(b2Vec2(m_CurrentLevel.spawnPoint.x, m_CurrentLevel.spawnPoint.y), 0);
-}
-
-void LevelManager::DeleteLevel()
-{
-	for (size_t i = 0; i < m_CurrentLevel.contents.size(); i++)
-	{
-		delete m_CurrentLevel.contents[i];
-	}
 }
 
 LevelManager::~LevelManager()

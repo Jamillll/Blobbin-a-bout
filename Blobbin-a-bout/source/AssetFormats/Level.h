@@ -14,6 +14,7 @@ public:
 
 	Level();
 	Level(b2World& world, std::string path);
+	~Level();
 
 public:
 	Vec2 ParseVec2(std::string input);

@@ -54,8 +54,6 @@ int main()
 
     Level level(world, "Levels/TestScene.txt");
 
-    //levelManager.TEMP_SET_LEVEL(level);
-
     while (!glfwWindowShouldClose(window))
     {
         renderer.ClearScreen();
