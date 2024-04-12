@@ -1,0 +1,7 @@
+/ If the line starts with a slash then it skips it and moves on, else we're going to be using characters to determine what we're dealing with, the simple one is going to be '*' for spawnpoint and then numbers for the tags. Semicolons will seperate info and then everything else will be slapped into the constructors for the tag's class.
+
+*; 0, 0;
+
+2; 0, -10; 32, 10; "container.jpg"
+3; 0, -5; 32, 1; "wall.jpg"
+2; -8, 0; 10, 3; "container.jpg"

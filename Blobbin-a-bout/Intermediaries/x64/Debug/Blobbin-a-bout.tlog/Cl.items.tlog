@@ -1,7 +1,9 @@
+C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\AssetFormats\Asset.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\Asset.obj
+C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\AssetFormats\Level.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\Level.obj
 C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Entities\Entity.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\Entity.obj
 C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Entities\LevelManager.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\LevelManager.obj
 C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Entities\Player.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\Player.obj
 C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Entities\Terrain.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\Terrain.obj
 C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\EntryPoint.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\EntryPoint.obj
 C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Rendering\Renderer.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\Renderer.obj
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Rendering\Texture2D.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\Texture2D.obj
+C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\AssetFormats\Texture2D.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\Texture2D.obj

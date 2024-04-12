@@ -2,14 +2,9 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Terrain.h"
+#include "../AssetFormats/Level.h"
 
 #include <vector>
-
-struct Level
-{
-	Vec2 spawnPoint;
-	std::vector<Entity*> contents;
-};
 
 class LevelManager : public Entity
 {
@@ -26,6 +21,7 @@ public:
 	void Update(GLFWwindow* window);
 
 	void NextLevel();
+	void LoadLevel();
 	void ReloadLevel();
 
 	void TEMP_SET_LEVEL(Level levelToAdd);

@@ -153,6 +153,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="source\AssetFormats\Asset.h" />
+    <ClInclude Include="source\AssetFormats\Level.h" />
     <ClInclude Include="source\Entities\Entity.h" />
     <ClInclude Include="source\Entities\LevelManager.h" />
     <ClInclude Include="source\Entities\Player.h" />
@@ -160,19 +162,21 @@
     <ClInclude Include="source\Rendering\Rectangle.h" />
     <ClInclude Include="source\Rendering\Renderer.h" />
     <ClInclude Include="source\Rendering\ShaderHandler.h" />
-    <ClInclude Include="source\Rendering\Texture2D.h" />
+    <ClInclude Include="source\AssetFormats\Texture2D.h" />
     <ClInclude Include="source\Rendering\VAO.h" />
     <ClInclude Include="source\Types.h" />
     <ClInclude Include="source\vendor\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\AssetFormats\Asset.cpp" />
+    <ClCompile Include="source\AssetFormats\Level.cpp" />
     <ClCompile Include="source\Entities\Entity.cpp" />
     <ClCompile Include="source\Entities\LevelManager.cpp" />
     <ClCompile Include="source\Entities\Player.cpp" />
     <ClCompile Include="source\Entities\Terrain.cpp" />
     <ClCompile Include="source\EntryPoint.cpp" />
     <ClCompile Include="source\Rendering\Renderer.cpp" />
-    <ClCompile Include="source\Rendering\Texture2D.cpp" />
+    <ClCompile Include="source\AssetFormats\Texture2D.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

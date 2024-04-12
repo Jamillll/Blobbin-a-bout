@@ -5,13 +5,14 @@
 #include <box2D/box2d.h>
 
 #include "Types.h"
-#include "Rendering/Texture2D.h"
+#include "AssetFormats/Texture2D.h"
 #include "Rendering/Renderer.h"
 
 #include "Entities/Entity.h"
 #include "Entities/Player.h"
 #include "Entities/Terrain.h"
-#include "Entities/LevelManager.h"
+#//include "Entities/LevelManager.h"
+#include "../AssetFormats/Level.h"
 
 int main()
 {
@@ -49,27 +50,20 @@ int main()
     world.SetContactListener(&player);
 
     Renderer renderer;
-    LevelManager levelManager(&renderer, &player);
+    //LevelManager levelManager(&renderer, &player);
 
-    Level testLevel;
-    {
-        testLevel.spawnPoint = { 0, 0 };
+    Level level(world, "Levels/TestScene.txt");
 
-        testLevel.contents.push_back(new Terrain(world, { 0, -10 }, { 32, 10 }, "container.jpg"));
-        testLevel.contents.push_back(new Terrain(world, { 0, -5 }, { 32, 1 }, "wall.jpg", true));
-        testLevel.contents.push_back(new Terrain(world, { -8, 0 }, { 10, 3 }, "container.jpg"));
-    }
-
-    levelManager.TEMP_SET_LEVEL(testLevel);
+    //levelManager.TEMP_SET_LEVEL(level);
 
     while (!glfwWindowShouldClose(window))
     {
         renderer.ClearScreen();
 
         Entity::UpdateAll(window);
-        Entity::DrawAll(renderer);
-
         world.Step(timeStep, 6, 2);
+
+        Entity::DrawAll(renderer);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

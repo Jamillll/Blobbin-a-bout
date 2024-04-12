@@ -2,7 +2,7 @@
 #include "VAO.h"
 #include "ShaderHandler.h"
 #include "../Types.h"
-#include "Texture2D.h"
+#include "../AssetFormats/Texture2D.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

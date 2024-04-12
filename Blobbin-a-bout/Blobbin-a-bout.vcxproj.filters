@@ -27,7 +27,7 @@
     <ClInclude Include="source\Rendering\ShaderHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\Rendering\Texture2D.h">
+    <ClInclude Include="source\AssetFormats\Texture2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\Rendering\VAO.h">
@@ -48,6 +48,12 @@
     <ClInclude Include="source\Entities\LevelManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\AssetFormats\Asset.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\AssetFormats\Level.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\EntryPoint.cpp">
@@ -56,7 +62,7 @@
     <ClCompile Include="source\Rendering\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Rendering\Texture2D.cpp">
+    <ClCompile Include="source\AssetFormats\Texture2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Entities\Entity.cpp">
@@ -69,6 +75,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Entities\LevelManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\AssetFormats\Asset.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\AssetFormats\Level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
