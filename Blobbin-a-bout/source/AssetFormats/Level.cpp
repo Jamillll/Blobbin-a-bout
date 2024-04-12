@@ -19,6 +19,11 @@ Level::Level(std::string path)
 	fstream file(EvaluatedPath());
 	string output;
 
+	if (file.fail())
+	{
+		cout << path << " failed during level creation" << endl;
+	}
+
 	while (getline(file, output))
 	{
 		stringstream stream(output);

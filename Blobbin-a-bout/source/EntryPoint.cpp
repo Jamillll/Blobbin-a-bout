@@ -11,7 +11,7 @@
 #include "Entities/Entity.h"
 #include "Entities/Player.h"
 #include "Entities/Terrain.h"
-#//include "Entities/LevelManager.h"
+#include "Entities/LevelManager.h"
 #include "../AssetFormats/Level.h"
 
 int main()
@@ -29,7 +29,6 @@ int main()
     }
 
     glfwMakeContextCurrent(window);
-    glClearColor(0.5f, 0.75f, 0.9f, 1.0f);
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -50,13 +49,21 @@ int main()
     world.SetContactListener(&player);
 
     Renderer renderer;
-    //LevelManager levelManager(&renderer, &player);
+    renderer.SetClearColour({ 0.5f, 0.75f, 0.9f});
 
-    Level level("Levels/TestScene.txt");
+    LevelManager levelManager(&renderer, &player);
+    levelManager.SetLevel("Levels/0.txt");
 
+    bool a = false;
     while (!glfwWindowShouldClose(window))
     {
         renderer.ClearScreen();
+
+        if (glfwGetKey(window, GLFW_KEY_5) && !a)
+        {
+            levelManager.NextLevel();
+            a = true;
+        }
 
         Entity::UpdateAll(window);
         world.Step(timeStep, 6, 2);

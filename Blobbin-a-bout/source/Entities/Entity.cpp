@@ -14,10 +14,10 @@ void Entity::UpdateAll(GLFWwindow* window)
 	for (size_t i = 0; i < m_entityList.size(); i++)
 	{
 		m_entityList[i]->Update(window);
-		std::cout << "ID: " << m_entityList[i]->m_ID << ", Tag:" << m_entityList[i]->m_Tag << std::endl;
+		//std::cout << "ID: " << m_entityList[i]->m_ID << ", Tag:" << m_entityList[i]->m_Tag << std::endl;
 	}
 
-	std::cout << std::endl; 
+	//std::cout << std::endl; 
 }
 
 void Entity::DrawAll(Renderer& renderer)

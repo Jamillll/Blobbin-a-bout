@@ -22,6 +22,7 @@ public:
 	Renderer();
 
 	void ClearScreen();
+	void SetClearColour(Vec3 clearColour);
 
 	void DrawRectangle(b2Body &body, Vec2 size, Vec4 colour);
 	void DrawRectangle(Rect rectangle);

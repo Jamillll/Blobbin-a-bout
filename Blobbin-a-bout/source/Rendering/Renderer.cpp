@@ -34,6 +34,11 @@ void Renderer::ClearScreen()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
+void Renderer::SetClearColour(Vec3 clearColour)
+{
+	glClearColor(clearColour.x, clearColour.y, clearColour.z, 1.0f);
+}
+
 void Renderer::DrawRectangle(b2Body &body, Vec2 size, Vec4 colour)
 {
 	DrawRectangle({ body.GetPosition().x, body.GetPosition().y }, size, colour);
