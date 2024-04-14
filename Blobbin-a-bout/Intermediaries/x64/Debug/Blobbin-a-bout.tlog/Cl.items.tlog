@@ -5,5 +5,13 @@ C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Entities\LevelManager.cpp;C:\Pr
 C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Entities\Player.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\Player.obj
 C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Entities\Terrain.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\Terrain.obj
 C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\EntryPoint.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\EntryPoint.obj
+C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Rendering\MyGui.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\MyGui.obj
 C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Rendering\Renderer.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\Renderer.obj
 C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\AssetFormats\Texture2D.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\Texture2D.obj
+C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\vendor\imgui\imgui.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\imgui.obj
+C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\vendor\imgui\imgui_demo.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\imgui_demo.obj
+C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\vendor\imgui\imgui_draw.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\imgui_draw.obj
+C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\vendor\imgui\imgui_impl_glfw.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\imgui_impl_glfw.obj
+C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\vendor\imgui\imgui_impl_opengl3.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\imgui_impl_opengl3.obj
+C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\vendor\imgui\imgui_tables.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\imgui_tables.obj
+C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\vendor\imgui\imgui_widgets.cpp;C:\Programs\Blobbin-a-bout\Blobbin-a-bout\Intermediaries\x64\Debug\imgui_widgets.obj

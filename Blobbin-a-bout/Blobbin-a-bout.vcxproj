@@ -159,12 +159,22 @@
     <ClInclude Include="source\Entities\LevelManager.h" />
     <ClInclude Include="source\Entities\Player.h" />
     <ClInclude Include="source\Entities\Terrain.h" />
+    <ClInclude Include="source\Rendering\MyGui.h" />
     <ClInclude Include="source\Rendering\Rectangle.h" />
     <ClInclude Include="source\Rendering\Renderer.h" />
     <ClInclude Include="source\Rendering\ShaderHandler.h" />
     <ClInclude Include="source\AssetFormats\Texture2D.h" />
     <ClInclude Include="source\Rendering\VAO.h" />
     <ClInclude Include="source\Types.h" />
+    <ClInclude Include="source\vendor\imgui\imconfig.h" />
+    <ClInclude Include="source\vendor\imgui\imgui.h" />
+    <ClInclude Include="source\vendor\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="source\vendor\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="source\vendor\imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="source\vendor\imgui\imgui_internal.h" />
+    <ClInclude Include="source\vendor\imgui\imstb_rectpack.h" />
+    <ClInclude Include="source\vendor\imgui\imstb_textedit.h" />
+    <ClInclude Include="source\vendor\imgui\imstb_truetype.h" />
     <ClInclude Include="source\vendor\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
@@ -175,8 +185,16 @@
     <ClCompile Include="source\Entities\Player.cpp" />
     <ClCompile Include="source\Entities\Terrain.cpp" />
     <ClCompile Include="source\EntryPoint.cpp" />
+    <ClCompile Include="source\Rendering\MyGui.cpp" />
     <ClCompile Include="source\Rendering\Renderer.cpp" />
     <ClCompile Include="source\AssetFormats\Texture2D.cpp" />
+    <ClCompile Include="source\vendor\imgui\imgui.cpp" />
+    <ClCompile Include="source\vendor\imgui\imgui_demo.cpp" />
+    <ClCompile Include="source\vendor\imgui\imgui_draw.cpp" />
+    <ClCompile Include="source\vendor\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="source\vendor\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="source\vendor\imgui\imgui_tables.cpp" />
+    <ClCompile Include="source\vendor\imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

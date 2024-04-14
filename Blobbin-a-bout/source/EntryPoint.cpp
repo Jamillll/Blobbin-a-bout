@@ -1,12 +1,13 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <iostream>
-
 #include <box2D/box2d.h>
+
+#include <iostream>
 
 #include "Types.h"
 #include "AssetFormats/Texture2D.h"
 #include "Rendering/Renderer.h"
+#include "Rendering/MyGui.h"
 
 #include "Entities/Entity.h"
 #include "Entities/Player.h"
@@ -30,30 +31,32 @@ int main()
     world.SetContactListener(&player);
 
     Renderer renderer;
+    MyGui myGui(window);
     renderer.SetClearColour({ 0.5f, 0.75f, 0.9f});
 
     LevelManager levelManager(&renderer, &player);
     levelManager.SetLevel("Levels/TestLevel.txt");
 
-    bool a = false;
     while (!glfwWindowShouldClose(window))
     {
         renderer.ClearScreen();
+        myGui.StartFrame();
 
-        if (glfwGetKey(window, GLFW_KEY_5) && !a)
+        if (myGui.ShowDebugMenu())
         {
-            levelManager.NextLevel();
-            a = true;
-        }
-        if (!glfwGetKey(window, GLFW_KEY_5) && a)
-        {
-            a = false;
+            ImGui::Begin("Debug Menu");
+            if (ImGui::Button("Next Level"))
+            {
+                levelManager.NextLevel();
+            }
+            ImGui::End();
         }
 
         Entity::UpdateAll(window);
         world.Step(timeStep, 6, 2);
 
         Entity::DrawAll(renderer);
+        myGui.Render();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
