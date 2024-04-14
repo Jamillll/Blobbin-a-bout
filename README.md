@@ -2,4 +2,11 @@
 
 A game created for my collage game dev unit.
 
-This game makes use of OpenGL for graphics rendering with GLFW for window management and GLEW for retrieving the OpenGL function pointers. On top of those I have made use of stb_image and glm for image parsing and openGL maths calculations respectively. To get accurate physics calculations as I think programming an entire physics solver is out of the scope of this project, I made use of the Box2D library which, while complex, gives me a lot of control over the physics.
+This game makes use of a variety of different libraries for game creation, this is because I've decided against using a game engine or even a game framework, both tools I've used before. The list of libraries used is as follows:
+
+GLFW - This is for window management and user input
+GLEW - This is for retrieving the OpenGL functions I will be using for graphics rendering
+GLM - OpenGL maths libary
+Box2D - This is for 2D physics and collision
+
+

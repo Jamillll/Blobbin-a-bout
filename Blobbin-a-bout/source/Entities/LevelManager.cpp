@@ -27,6 +27,8 @@ void LevelManager::NextLevel()
 	}
 	file.close();
 
+	if (levelNames.size() - 1 == m_CurrentLevelIndex) return;
+		
 	m_CurrentLevelIndex++;
 	string uniquePath = "Levels/" + levelNames[m_CurrentLevelIndex] + ".txt";
 
