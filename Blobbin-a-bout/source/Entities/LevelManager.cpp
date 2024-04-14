@@ -15,10 +15,31 @@ void LevelManager::Update(GLFWwindow* window)
 
 void LevelManager::NextLevel()
 {
-	std::string uniquePath = m_CurrentLevel->m_UniquePath;
+	using namespace std;
+
+	string levelListPath = m_CurrentLevel->m_BasePath + "Levels\\!LevelList.txt";
+	string uniquePath = m_CurrentLevel->m_UniquePath;
 	int beforeExtention = 5;
 
-	uniquePath[uniquePath.length() - beforeExtention]++;
+	fstream file(levelListPath);
+	string input;
+
+	bool foundCurrent = false;
+	while (getline(file, input))
+	{
+		if (foundCurrent)
+		{
+			uniquePath = "Levels/" + input + ".txt";
+			break;
+		}
+
+		if ("Levels/" + input + ".txt" == uniquePath)
+		{
+			foundCurrent = true;
+		}
+	}
+
+	file.close();
 
 	SetLevel(uniquePath.data());
 }

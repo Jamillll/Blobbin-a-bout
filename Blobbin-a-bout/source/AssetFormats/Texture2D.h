@@ -10,6 +10,9 @@ private:
 
 public:
 	Texture(const std::string texturePath);
+
 	void BindTexture();
 	unsigned int GetID();
+
+	~Texture();
 };

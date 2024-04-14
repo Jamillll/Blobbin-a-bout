@@ -12,7 +12,6 @@
 #include "Entities/Player.h"
 #include "Entities/Terrain.h"
 #include "Entities/LevelManager.h"
-#include "../AssetFormats/Level.h"
 
 int main()
 {
@@ -52,7 +51,7 @@ int main()
     renderer.SetClearColour({ 0.5f, 0.75f, 0.9f});
 
     LevelManager levelManager(&renderer, &player);
-    levelManager.SetLevel("Levels/0.txt");
+    levelManager.SetLevel("Levels/TestLevel.txt");
 
     bool a = false;
     while (!glfwWindowShouldClose(window))
@@ -63,6 +62,10 @@ int main()
         {
             levelManager.NextLevel();
             a = true;
+        }
+        if (!glfwGetKey(window, GLFW_KEY_5) && a)
+        {
+            a = false;
         }
 
         Entity::UpdateAll(window);

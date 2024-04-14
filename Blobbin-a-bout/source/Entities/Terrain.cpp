@@ -36,7 +36,7 @@ void Terrain::Update(GLFWwindow* window)
 
 void Terrain::Draw(Renderer& renderer)
 {
-    renderer.DrawTexture(*m_Body, m_Size, *m_Texture);
+    renderer.DrawTexture(*m_Body, m_Size, m_Texture);
 }
 
 Terrain::~Terrain()

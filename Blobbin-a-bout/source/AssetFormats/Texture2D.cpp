@@ -28,3 +28,9 @@ unsigned int Texture::GetID()
 {
 	return m_ID;
 }
+
+Texture::~Texture()
+{
+	glBindTexture(GL_TEXTURE_2D, m_ID);
+	glDeleteTextures(1, &m_ID);
+}

@@ -75,17 +75,17 @@ void Renderer::DrawRectangle(Vec2 position, Vec2 size, Vec4 colour)
 	m_VAO->DrawVAO();
 }
 
-void Renderer::DrawTexture(b2Body &body, Vec2 size, Texture texture)
+void Renderer::DrawTexture(b2Body &body, Vec2 size, Texture* texture)
 {
 	DrawTexture({ body.GetPosition().x, body.GetPosition().y }, size, texture);
 }
 
-void Renderer::DrawTexture(Rect rectangle, Texture texture)
+void Renderer::DrawTexture(Rect rectangle, Texture* texture)
 {
 	DrawTexture(rectangle.position, rectangle.size, texture);
 }
 
-void Renderer::DrawTexture(Vec2 position, Vec2 size, Texture texture)
+void Renderer::DrawTexture(Vec2 position, Vec2 size, Texture* texture)
 {
 	size = { size.x / 2, size.y / 2 };
 
@@ -105,7 +105,7 @@ void Renderer::DrawTexture(Vec2 position, Vec2 size, Texture texture)
 	};
 
 	glActiveTexture(GL_TEXTURE0);
-	texture.BindTexture();
+	texture->BindTexture();
 
 	m_VAO->WriteToVertexBuffer(vertices, sizeof(vertices));
 	m_VAO->WriteToIndexBuffer(indices, indicesCount);

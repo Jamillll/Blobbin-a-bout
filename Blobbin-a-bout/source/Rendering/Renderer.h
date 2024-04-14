@@ -28,9 +28,9 @@ public:
 	void DrawRectangle(Rect rectangle);
 	void DrawRectangle(Vec2 position, Vec2 size, Vec4 colour);
 
-	void DrawTexture(b2Body &body, Vec2 size, Texture texture);
-	void DrawTexture(Rect rectangle, Texture texture);
-	void DrawTexture(Vec2 position, Vec2 size, Texture texture);
+	void DrawTexture(b2Body &body, Vec2 size, Texture* texture);
+	void DrawTexture(Rect rectangle, Texture* texture);
+	void DrawTexture(Vec2 position, Vec2 size, Texture* texture);
 
 	void SetCameraPosition(Vec3 increment);
 
