@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "Types.h"
+#include "Timer.h"
 #include "AssetFormats/Texture2D.h"
 #include "Rendering/Renderer.h"
 #include "Rendering/MyGui.h"
@@ -24,11 +25,6 @@ int main()
     int frameRate = 0;
     unsigned int frameCount = 0;
     double previousTime = glfwGetTime();
-    double currentTime;
-
-    double previousFrameTime = glfwGetTime();
-    double currentFrameTime;
-    double frameTime;
 
     b2Vec2 gravity(0.001f, -40.0f);
     float timeStep = 1.0f / 60.0f;
@@ -48,13 +44,12 @@ int main()
 
     while (!glfwWindowShouldClose(window))
     {
-        renderer.ClearScreen();
-        myGui.StartFrame();
+        double frameTime = 0;
+        Timer timer(&frameTime);
 
         //Calculate fps
         {
-            currentTime = glfwGetTime();
-            currentFrameTime = glfwGetTime();
+            double currentTime = glfwGetTime();
             frameCount++;
 
             if (currentTime - previousTime >= 1.0)
@@ -64,13 +59,10 @@ int main()
                 frameCount = 0;
                 previousTime = currentTime;
             }
-            if (currentTime - previousTime >= 1.0 / 60)
-            {
-                frameTime = currentFrameTime - previousFrameTime;
-
-                previousFrameTime = currentFrameTime;
-            }
         }
+
+        renderer.ClearScreen();
+        myGui.StartFrame();
 
         Entity::UpdateAll(window);
         world.Step(timeStep, 6, 2);
