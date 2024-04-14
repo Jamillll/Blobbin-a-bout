@@ -8,10 +8,17 @@ MyGui::MyGui(GLFWwindow* window)
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 
-    ImGui::StyleColorsDark();
+    ImGui::StyleColorsLight();
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 450");
+
+    m_WindowFlags |= ImGuiWindowFlags_NoTitleBar;
+    m_WindowFlags |= ImGuiWindowFlags_NoMove;
+    m_WindowFlags |= ImGuiWindowFlags_NoResize;
+    m_WindowFlags |= ImGuiWindowFlags_NoCollapse;
+    m_WindowFlags |= ImGuiWindowFlags_NoNav;
+    m_WindowFlags |= ImGuiWindowFlags_NoBackground;
 }
 
 void MyGui::StartFrame()
@@ -49,6 +56,11 @@ void MyGui::Render()
 bool MyGui::ShowDebugMenu()
 {
     return m_DebugMenu;
+}
+
+ImGuiWindowFlags MyGui::GetWantedFlags()
+{
+    return m_WindowFlags;
 }
 
 MyGui::~MyGui()

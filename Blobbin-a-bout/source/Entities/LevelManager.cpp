@@ -15,22 +15,12 @@ void LevelManager::Update(GLFWwindow* window)
 
 void LevelManager::NextLevel()
 {
-	using namespace std;
-
-	fstream file(m_CurrentLevel->m_BasePath + "Levels\\!LevelList.txt");
-	vector<string> levelNames;
-	string input;
-
-	while (getline(file, input))
-	{
-		levelNames.push_back(input);
-	}
-	file.close();
+	std::vector<std::string> levelNames = GetLevelList();
 
 	if (levelNames.size() - 1 == m_CurrentLevelIndex) return;
 		
 	m_CurrentLevelIndex++;
-	string uniquePath = "Levels/" + levelNames[m_CurrentLevelIndex] + ".txt";
+	std::string uniquePath = "Levels/" + levelNames[m_CurrentLevelIndex] + ".txt";
 
 	SetLevel(uniquePath.data());
 }
@@ -40,7 +30,6 @@ void LevelManager::ReloadLevel()
 	std::string uniquePath = m_CurrentLevel->m_UniquePath;
 
 	SetLevel(uniquePath.data());
-
 }
 
 void LevelManager::SetLevel(const char* levelToAdd)
@@ -54,6 +43,40 @@ void LevelManager::SetLevel(const char* levelToAdd)
 	m_Player->m_Body->SetTransform(b2Vec2(m_CurrentLevel->spawnPoint.x, m_CurrentLevel->spawnPoint.y), 0);
 }
 
+void LevelManager::SetLevel(int index)
+{
+	std::vector<std::string> levelNames = GetLevelList();
+
+	if (index > levelNames.size() - 1 || index < 0) return;
+
+	m_CurrentLevelIndex = index;
+	std::string uniquePath = "Levels/" + levelNames[index] + ".txt";
+
+	SetLevel(uniquePath.data());
+}
+
+int LevelManager::GetCurrentLevelIndex()
+{
+	return m_CurrentLevelIndex;
+}
+
 LevelManager::~LevelManager()
 {
+}
+
+std::vector<std::string> LevelManager::GetLevelList()
+{
+	using namespace std;
+
+	fstream file(m_CurrentLevel->m_BasePath + "Levels\\!LevelList.txt");
+	vector<string> levelNames;
+	string input;
+
+	while (getline(file, input))
+	{
+		levelNames.push_back(input);
+	}
+	file.close();
+
+	return levelNames;
 }

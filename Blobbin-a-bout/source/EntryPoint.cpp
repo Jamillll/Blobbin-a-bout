@@ -21,6 +21,15 @@ int main()
     GLFWwindow* window = SetupWindow();
     if (window == nullptr) return -1;
 
+    int frameRate = 0;
+    unsigned int frameCount = 0;
+    double previousTime = glfwGetTime();
+    double currentTime;
+
+    double previousFrameTime = glfwGetTime();
+    double currentFrameTime;
+    double frameTime;
+
     b2Vec2 gravity(0.001f, -40.0f);
     float timeStep = 1.0f / 60.0f;
     b2World world(gravity);
@@ -42,18 +51,64 @@ int main()
         renderer.ClearScreen();
         myGui.StartFrame();
 
-        if (myGui.ShowDebugMenu())
+        //Calculate fps
         {
-            ImGui::Begin("Debug Menu");
-            if (ImGui::Button("Next Level"))
+            currentTime = glfwGetTime();
+            currentFrameTime = glfwGetTime();
+            frameCount++;
+
+            if (currentTime - previousTime >= 1.0)
             {
-                levelManager.NextLevel();
+                frameRate = frameCount;
+
+                frameCount = 0;
+                previousTime = currentTime;
             }
-            ImGui::End();
+            if (currentTime - previousTime >= 1.0 / 60)
+            {
+                frameTime = currentFrameTime - previousFrameTime;
+
+                previousFrameTime = currentFrameTime;
+            }
         }
 
         Entity::UpdateAll(window);
         world.Step(timeStep, 6, 2);
+
+        if (myGui.ShowDebugMenu())
+        {
+            bool open = true;
+            ImGui::Begin("Debug Menu", &open, myGui.GetWantedFlags());
+            ImGui::SeparatorText("Level Navigation:");
+
+            if (ImGui::Button("Next Level"))
+            {
+                levelManager.NextLevel();
+            }
+
+            if (ImGui::Button("Reload Level"))
+            {
+                levelManager.ReloadLevel();
+            }
+
+            ImGui::Text("Set Level by Index:");
+            int levelIndex = levelManager.GetCurrentLevelIndex();
+            ImGui::InputInt("##levelIndex", &levelIndex);
+            if (levelIndex != levelManager.GetCurrentLevelIndex())
+            {
+                levelManager.SetLevel(levelIndex);
+            }
+
+            ImGui::SeparatorText("Player Info:");
+            ImGui::Text("Player Position: %.1f, %.1f", player.m_Body->GetPosition().x, player.m_Body->GetPosition().y);
+            ImGui::Text("Player Velocity: %.1f, %.1f", player.m_Body->GetLinearVelocity().x, player.m_Body->GetLinearVelocity().y);
+
+            ImGui::SeparatorText("Performance Info:");
+            ImGui::Text("Fps (Frames Per Second): %d", frameRate);
+            ImGui::Text("Frame Time: %f", frameTime);
+
+            ImGui::End();
+        }
 
         Entity::DrawAll(renderer);
         myGui.Render();
@@ -78,6 +133,7 @@ GLFWwindow* SetupWindow()
         return nullptr;
     }
 
+    glfwSwapInterval(1);
     glfwMakeContextCurrent(window);
 
     glEnable(GL_BLEND);

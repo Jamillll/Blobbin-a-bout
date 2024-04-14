@@ -8,6 +8,7 @@ class MyGui
 {
 private:
 	GLFWwindow* m_Window;
+	ImGuiWindowFlags m_WindowFlags = 0;
 	bool m_DebugMenu = false;
 	bool m_PressPrimed = true;
 
@@ -17,6 +18,7 @@ public:
 	void StartFrame();
 	void Render();
 	bool ShowDebugMenu();
+	ImGuiWindowFlags GetWantedFlags();
 
 	~MyGui();
 };

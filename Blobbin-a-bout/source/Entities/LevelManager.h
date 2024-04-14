@@ -24,8 +24,12 @@ public:
 	void NextLevel();
 	void ReloadLevel();
 	void SetLevel(const char* levelToAdd);
+	void SetLevel(int index);
+	int GetCurrentLevelIndex();
 
 	~LevelManager();
 
 private:
+
+	std::vector<std::string> GetLevelList();
 };

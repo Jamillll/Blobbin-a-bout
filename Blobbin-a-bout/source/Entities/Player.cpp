@@ -49,6 +49,8 @@ void Player::Update(GLFWwindow* window)
     }
     else m_Body->SetLinearVelocity(b2Vec2(m_Body->GetLinearVelocity().x * 0.7, m_Body->GetLinearVelocity().y));
 
+    //moveVelocity = b2Vec2(moveVelocity.x * m_DeltaTime, moveVelocity.y * m_DeltaTime);
+
     m_Body->SetLinearVelocity(m_Body->GetLinearVelocity() + moveVelocity);
 }
 
