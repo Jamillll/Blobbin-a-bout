@@ -13,30 +13,12 @@
 #include "Entities/Terrain.h"
 #include "Entities/LevelManager.h"
 
+GLFWwindow* SetupWindow(); // Check below main function
+
 int main()
 {
-    GLFWwindow* window;
-
-    if (!glfwInit())
-        return -1;
-
-    window = glfwCreateWindow(1000, 600, "Blobbin a'bout", NULL, NULL);
-    if (!window)
-    {
-        glfwTerminate();
-        return -1;
-    }
-
-    glfwMakeContextCurrent(window);
-
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-    if (glewInit() != GLEW_OK)
-    {
-        glfwTerminate();
-        return -1;
-    }
+    GLFWwindow* window = SetupWindow();
+    if (window == nullptr) return -1;
 
     b2Vec2 gravity(0.001f, -40.0f);
     float timeStep = 1.0f / 60.0f;
@@ -79,4 +61,30 @@ int main()
 
     glfwTerminate();
     return 0;
+}
+
+GLFWwindow* SetupWindow()
+{
+    if (!glfwInit())
+        return nullptr;
+
+    GLFWwindow* window = glfwCreateWindow(1000, 600, "Blobbin a'bout", NULL, NULL);
+    if (!window)
+    {
+        glfwTerminate();
+        return nullptr;
+    }
+
+    glfwMakeContextCurrent(window);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    if (glewInit() != GLEW_OK)
+    {
+        glfwTerminate();
+        return nullptr;
+    }
+
+    return window;
 }

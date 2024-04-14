@@ -17,29 +17,18 @@ void LevelManager::NextLevel()
 {
 	using namespace std;
 
-	string levelListPath = m_CurrentLevel->m_BasePath + "Levels\\!LevelList.txt";
-	string uniquePath = m_CurrentLevel->m_UniquePath;
-	int beforeExtention = 5;
-
-	fstream file(levelListPath);
+	fstream file(m_CurrentLevel->m_BasePath + "Levels\\!LevelList.txt");
+	vector<string> levelNames;
 	string input;
 
-	bool foundCurrent = false;
 	while (getline(file, input))
 	{
-		if (foundCurrent)
-		{
-			uniquePath = "Levels/" + input + ".txt";
-			break;
-		}
-
-		if ("Levels/" + input + ".txt" == uniquePath)
-		{
-			foundCurrent = true;
-		}
+		levelNames.push_back(input);
 	}
-
 	file.close();
+
+	m_CurrentLevelIndex++;
+	string uniquePath = "Levels/" + levelNames[m_CurrentLevelIndex] + ".txt";
 
 	SetLevel(uniquePath.data());
 }
@@ -59,6 +48,7 @@ void LevelManager::SetLevel(const char* levelToAdd)
 	// TODO: Add a fancy transition animation maybe??
 
 	m_CurrentLevel = new Level(levelToAdd);
+	m_Player->m_Body->SetLinearVelocity(b2Vec2_zero);
 	m_Player->m_Body->SetTransform(b2Vec2(m_CurrentLevel->spawnPoint.x, m_CurrentLevel->spawnPoint.y), 0);
 }
 

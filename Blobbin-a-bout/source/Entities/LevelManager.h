@@ -14,6 +14,7 @@ private:
 	Vec3 m_CameraOffset = { 0, 0, 0 };
 
 	Level* m_CurrentLevel = nullptr;
+	unsigned int m_CurrentLevelIndex = 0;
 
 public:
 	LevelManager(Renderer* renderer, Player* player);
