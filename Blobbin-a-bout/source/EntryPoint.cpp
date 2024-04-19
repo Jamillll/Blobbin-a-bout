@@ -12,7 +12,6 @@
 
 #include "Entities/Entity.h"
 #include "Entities/Player.h"
-#include "Entities/Terrain.h"
 #include "Entities/LevelManager.h"
 
 GLFWwindow* SetupWindow(); // Check below main function

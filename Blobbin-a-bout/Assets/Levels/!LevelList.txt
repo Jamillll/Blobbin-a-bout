@@ -1,10 +1,2 @@
 TestLevel
 Level_1
-TestLevel
-Level_1
-TestLevel
-Level_1
-TestLevel
-Level_1
-TestLevel
-Level_1
