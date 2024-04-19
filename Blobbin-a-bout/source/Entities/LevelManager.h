@@ -1,7 +1,6 @@
 #pragma once
 #include "Entity.h"
 #include "Player.h"
-#include "Terrain.h"
 #include "../AssetFormats/Level.h"
 
 #include <vector>
@@ -21,10 +20,14 @@ public:
 
 	void Update(GLFWwindow* window);
 
+	void LoadFirstLevel();
+
 	void NextLevel();
 	void ReloadLevel();
+
 	void SetLevel(const char* levelToAdd);
 	void SetLevel(int index);
+
 	int GetCurrentLevelIndex();
 
 	~LevelManager();

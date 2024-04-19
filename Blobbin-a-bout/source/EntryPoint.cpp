@@ -23,6 +23,7 @@ int main()
     if (window == nullptr) return -1;
 
     int frameRate = 0;
+    double frameTime = 0;
     unsigned int frameCount = 0;
     double previousTime = glfwGetTime();
 
@@ -40,11 +41,12 @@ int main()
     renderer.SetClearColour({ 0.5f, 0.75f, 0.9f});
 
     LevelManager levelManager(&renderer, &player);
-    levelManager.SetLevel("Levels/TestLevel.txt");
+    levelManager.LoadFirstLevel();
+
+    Texture background("AAAA.jpg");
 
     while (!glfwWindowShouldClose(window))
     {
-        double frameTime = 0;
         Timer timer(&frameTime);
 
         //Calculate fps
@@ -102,6 +104,7 @@ int main()
             ImGui::End();
         }
 
+        renderer.DrawTexture({ 0, 0 }, {32, 20}, &background);
         Entity::DrawAll(renderer);
         myGui.Render();
 

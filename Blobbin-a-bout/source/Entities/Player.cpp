@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Coin.h"
 
 Player::Player(b2World& world)
 {
@@ -71,9 +72,16 @@ void Player::BeginContact(b2Contact* contact)
         bID = temp;
     }
 
-    if (m_entityList[bID]->m_Tag == FLOOR)
+    switch (m_entityList[bID]->m_Tag)
     {
+    case FLOOR:
         m_JumpCount = m_MaxJumps;
+        break;
+
+    case COIN:
+        Coin* hitCoin = (Coin*)m_entityList[bID];
+        hitCoin->isCollected = true;
+        break;
     }
 }
 

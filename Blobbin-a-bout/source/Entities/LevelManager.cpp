@@ -13,12 +13,17 @@ void LevelManager::Update(GLFWwindow* window)
 	m_Renderer->SetCameraPosition({ -m_Player->m_Body->GetPosition().x, 0, 0 });
 }
 
+void LevelManager::LoadFirstLevel()
+{
+	SetLevel(0);
+}
+
 void LevelManager::NextLevel()
 {
 	std::vector<std::string> levelNames = GetLevelList();
 
 	if (levelNames.size() - 1 == m_CurrentLevelIndex) return;
-		
+
 	m_CurrentLevelIndex++;
 	std::string uniquePath = "Levels/" + levelNames[m_CurrentLevelIndex] + ".txt";
 

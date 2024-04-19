@@ -1,5 +1,6 @@
 #include "Level.h"
 #include "../Entities/Terrain.h"
+#include "../Entities/Coin.h"
 
 #include <fstream>
 #include <sstream> 
@@ -50,6 +51,11 @@ Level::Level(std::string path)
 
 		case '3': // Floor
 			toPush = new Terrain(*Entity::m_World, ParseVec2(entries[1]), ParseVec2(entries[2]), SlightlyParseString(entries[3]).data(), true);
+			contents.push_back(toPush);
+			break;
+
+		case '5': // Coin
+			toPush = new Coin(ParseVec2(entries[1]), ParseVec2(entries[2]), SlightlyParseString(entries[3]).data());
 			contents.push_back(toPush);
 			break;
 		}

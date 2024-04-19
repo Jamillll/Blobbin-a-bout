@@ -20,6 +20,7 @@ public:
 		TERRAIN = 2,
 		FLOOR = 3,
 		MANAGER = 4,
+		COIN = 5,
 	};
 
 	Entity();
