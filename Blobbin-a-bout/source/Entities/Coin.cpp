@@ -24,12 +24,12 @@ Coin::Coin(Vec2 position, Vec2 size, const char* texturePath)
 
 void Coin::Update(GLFWwindow* window)
 {
-	if (m_Body == nullptr) return;
+	if (m_Body->IsEnabled() == false) return;
 
 	if (isCollected)
 	{
 		AddCoinCount(-1);
-		m_World->DestroyBody(m_Body);
+		m_Body->SetEnabled(false);
 	}
 }
 
@@ -47,6 +47,7 @@ unsigned int Coin::GetCoinCount()
 
 Coin::~Coin()
 {
+	m_World->DestroyBody(m_Body);
 	delete m_Texture;
 }
 

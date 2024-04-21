@@ -1,41 +1,5 @@
-﻿  Level.cpp
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Rendering\VAO.h(33,77): warning C4312: 'type cast': conversion from 'unsigned int' to 'void *' of greater size
-  (compiling source file 'source/AssetFormats/Level.cpp')
-  
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\AssetFormats\Level.cpp(86,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\AssetFormats\Level.cpp(94,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Coin.cpp
+﻿  Coin.cpp
 C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Rendering\VAO.h(33,77): warning C4312: 'type cast': conversion from 'unsigned int' to 'void *' of greater size
   (compiling source file 'source/Entities/Coin.cpp')
   
-  Entity.cpp
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Rendering\VAO.h(33,77): warning C4312: 'type cast': conversion from 'unsigned int' to 'void *' of greater size
-  (compiling source file 'source/Entities/Entity.cpp')
-  
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Entities\Entity.cpp(9,29): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-  LevelManager.cpp
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Rendering\VAO.h(33,77): warning C4312: 'type cast': conversion from 'unsigned int' to 'void *' of greater size
-  (compiling source file 'source/Entities/LevelManager.cpp')
-  
-  Player.cpp
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Rendering\VAO.h(33,77): warning C4312: 'type cast': conversion from 'unsigned int' to 'void *' of greater size
-  (compiling source file 'source/Entities/Player.cpp')
-  
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Entities\Player.cpp(51,73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Entities\Player.cpp(65,22): warning C4244: 'initializing': conversion from 'uintptr_t' to 'unsigned int', possible loss of data
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Entities\Player.cpp(66,22): warning C4244: 'initializing': conversion from 'uintptr_t' to 'unsigned int', possible loss of data
-  Terrain.cpp
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Rendering\VAO.h(33,77): warning C4312: 'type cast': conversion from 'unsigned int' to 'void *' of greater size
-  (compiling source file 'source/Entities/Terrain.cpp')
-  
-  EntryPoint.cpp
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Rendering\VAO.h(33,77): warning C4312: 'type cast': conversion from 'unsigned int' to 'void *' of greater size
-  (compiling source file 'source/EntryPoint.cpp')
-  
-  Texture2D.cpp
-  Generating Code...
-C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\AssetFormats\Level.cpp(119,1): warning C4715: 'Level::SlightlyParseString': not all control paths return a value
-glew32s.lib(glew.obj) : warning LNK4099: PDB '' was not found with 'glew32s.lib(glew.obj)' or at ''; linking object as if no debug info
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Blobbin-a-bout.vcxproj -> C:\Programs\Blobbin-a-bout\Blobbin-a-bout\x64\Debug\Blobbin-a-bout.exe
