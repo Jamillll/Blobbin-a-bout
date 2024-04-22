@@ -43,7 +43,7 @@ int main()
     LevelManager levelManager(&renderer, &player);
     levelManager.LoadFirstLevel();
 
-    Texture background("AAAA.jpg");
+    Texture background("AAAA.jpg", true);
 
     while (!glfwWindowShouldClose(window))
     {

@@ -1,2 +1,5 @@
-﻿  Texture2D.cpp
+﻿  EntryPoint.cpp
+C:\Programs\Blobbin-a-bout\Blobbin-a-bout\source\Rendering\VAO.h(33,77): warning C4312: 'type cast': conversion from 'unsigned int' to 'void *' of greater size
+  (compiling source file 'source/EntryPoint.cpp')
+  
   Blobbin-a-bout.vcxproj -> C:\Programs\Blobbin-a-bout\Blobbin-a-bout\x64\Debug\Blobbin-a-bout.exe

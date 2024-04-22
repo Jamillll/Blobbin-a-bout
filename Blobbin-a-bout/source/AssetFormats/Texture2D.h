@@ -10,9 +10,13 @@ private:
 
 public:
 	Texture(const std::string texturePath);
+	Texture(const std::string texturePath, bool isBlurred);
 
 	void BindTexture();
 	unsigned int GetID();
 
 	~Texture();
+
+private:
+	void Initialise(std::string texturePath, bool isBlurred);
 };
