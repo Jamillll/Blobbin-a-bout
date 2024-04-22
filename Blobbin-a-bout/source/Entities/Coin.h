@@ -17,7 +17,7 @@ public:
 	void Update(GLFWwindow* window);
 	void Draw(Renderer& renderer);
 
-	unsigned int GetCoinCount();
+	static unsigned int GetCoinCount();
 
 	~Coin();
 

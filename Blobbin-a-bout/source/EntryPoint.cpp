@@ -12,6 +12,7 @@
 
 #include "Entities/Entity.h"
 #include "Entities/Player.h"
+#include "Entities/Coin.h"
 #include "Entities/LevelManager.h"
 
 GLFWwindow* SetupWindow(); // Check below main function
@@ -99,6 +100,19 @@ int main()
             ImGui::SeparatorText("Performance Info:");
             ImGui::Text("Fps (Frames Per Second): %d", frameRate);
             ImGui::Text("Frame Time: %f", frameTime);
+
+            int coinCount = 0;
+            for (size_t i = 0; i < Entity::m_entityList.size(); i++)
+            {
+                if (Entity::m_entityList[i]->m_Tag == Entity::COIN)
+                {
+                    coinCount = Coin::GetCoinCount();
+                    goto exitLoop;
+                }
+            }
+
+        exitLoop:
+            ImGui::Text("CoinCount: %d", coinCount);
 
             ImGui::End();
         }

@@ -10,6 +10,8 @@ Texture::Texture(std::string texturePath)
 
 	m_UniquePath = texturePath;
 
+	stbi_set_flip_vertically_on_load(true);
+
 	int width, height, nrChannels;
 	unsigned char* textureData = stbi_load(EvaluatedPath().c_str(), &width, &height, &nrChannels, 4);
 

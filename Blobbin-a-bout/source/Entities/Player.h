@@ -19,6 +19,7 @@ public:
 	Vec4 m_Colour = { 1, 0, 0, 0.5f };
 	Vec2 m_Size = { 1.5, 2 };
 	b2Body* m_Body = nullptr;
+	Texture* m_Texture = nullptr;
 
 	Player(b2World &world);
 

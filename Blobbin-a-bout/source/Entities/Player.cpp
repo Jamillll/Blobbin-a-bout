@@ -8,6 +8,8 @@ Player::Player(b2World& world)
     bodyDef.userData.pointer = this->m_ID;
     m_Tag = PLAYER;
 
+    m_Texture = new Texture("theBoi.png");
+
     bodyDef.type = b2_dynamicBody;
     bodyDef.position.Set(0.0f, 0.0f);
     bodyDef.fixedRotation = true; 
@@ -57,7 +59,7 @@ void Player::Update(GLFWwindow* window)
 
 void Player::Draw(Renderer &renderer)
 {
-    renderer.DrawRectangle(*m_Body, m_Size, m_Colour);
+    renderer.DrawTexture(*m_Body, m_Size, m_Texture);
 }
 
 void Player::BeginContact(b2Contact* contact)
