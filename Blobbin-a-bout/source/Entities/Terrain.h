@@ -10,7 +10,7 @@ private:
 	b2Body* m_Body = nullptr;
 
 public:
-	Terrain(b2World& world, Vec2 position, Vec2 size, const char* texturePath, bool isFloor);
+	Terrain(b2World& world, Vec2 position, Vec2 size, const char* texturePath, Tag tag);
 	Terrain(b2World& world, Vec2 position, Vec2 size, const char* texturePath);
 
 	void Update(GLFWwindow* window);
@@ -19,5 +19,5 @@ public:
 	~Terrain();
 
 private:
-	void Initialise(b2World& world, Vec2 position, Vec2 size, const char* texturePath, bool isFloor);
+	void Initialise(b2World& world, Vec2 position, Vec2 size, const char* texturePath, Tag tag);
 };

@@ -8,5 +8,8 @@ private:
 
 public:
 	Timer(double* scopeTime);
+
+	double GetTime();
+
 	~Timer();
 };

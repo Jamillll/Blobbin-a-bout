@@ -11,6 +11,22 @@ void LevelManager::Update(GLFWwindow* window)
 {
 	m_CameraOffset.x -= 0.01f;
 	m_Renderer->SetCameraPosition({ -m_Player->m_Body->GetPosition().x, 0, 0 });
+
+	if (m_CurrentLevel->coinHandle->GetCoinCount() == 0 && m_CurrentLevelIndex >= 0)
+	{
+		NextLevel();
+		return;
+	}
+
+	if (!m_Player->m_IsDead) return;
+
+	if (m_Player->GetLivesCount() == 0)
+	{
+		LoadGameOver();
+	}
+
+	ReloadLevel();
+	m_Player->m_IsDead = false;
 }
 
 void LevelManager::LoadFirstLevel()
@@ -18,21 +34,44 @@ void LevelManager::LoadFirstLevel()
 	SetLevel(0);
 }
 
+void LevelManager::LoadWin()
+{
+	const int winIndex = -1;
+	SetLevel(winIndex);
+}
+
+void LevelManager::LoadLose()
+{
+	const int loseIndex = -2;
+	SetLevel(loseIndex);
+}
+
+void LevelManager::LoadGameOver()
+{
+	const int gameOverIndex = -3;
+	SetLevel(gameOverIndex);
+}
+
 void LevelManager::NextLevel()
 {
 	std::vector<std::string> levelNames = GetLevelList();
 
-	if (levelNames.size() - 1 == m_CurrentLevelIndex) return;
+	if (levelNames.size() - 1 == m_CurrentLevelIndex + 3)
+	{
+		LoadWin();
+		return;
+	}
 
 	m_CurrentLevelIndex++;
-	std::string uniquePath = "Levels/" + levelNames[m_CurrentLevelIndex] + ".txt";
+	std::string uniquePath = "Levels/" + levelNames[m_CurrentLevelIndex + 3] + ".txt";
 
 	SetLevel(uniquePath.data());
 }
 
 void LevelManager::ReloadLevel()
 {
-	std::string uniquePath = m_CurrentLevel->m_UniquePath;
+	std::vector<std::string> levelNames = GetLevelList();
+	std::string uniquePath = "Levels/" + levelNames[m_CurrentLevelIndex + 3] + ".txt";
 
 	SetLevel(uniquePath.data());
 }
@@ -51,11 +90,13 @@ void LevelManager::SetLevel(const char* levelToAdd)
 void LevelManager::SetLevel(int index)
 {
 	std::vector<std::string> levelNames = GetLevelList();
+	index += 3;
 
 	if (index > levelNames.size() - 1 || index < 0) return;
 
 	m_CurrentLevelIndex = index;
 	std::string uniquePath = "Levels/" + levelNames[index] + ".txt";
+	m_CurrentLevelIndex = index - 3;
 
 	SetLevel(uniquePath.data());
 }

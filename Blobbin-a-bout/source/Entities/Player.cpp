@@ -12,7 +12,7 @@ Player::Player(b2World& world)
 
     bodyDef.type = b2_dynamicBody;
     bodyDef.position.Set(0.0f, 0.0f);
-    bodyDef.fixedRotation = true; 
+    bodyDef.fixedRotation = true;
     m_Body = world.CreateBody(&bodyDef);
 
     b2PolygonShape dynamicBox;
@@ -57,9 +57,14 @@ void Player::Update(GLFWwindow* window)
     m_Body->SetLinearVelocity(m_Body->GetLinearVelocity() + moveVelocity);
 }
 
-void Player::Draw(Renderer &renderer)
+void Player::Draw(Renderer& renderer)
 {
     renderer.DrawTexture(*m_Body, m_Size, m_Texture);
+}
+
+unsigned int Player::GetLivesCount()
+{
+    return m_LivesCount;
 }
 
 void Player::BeginContact(b2Contact* contact)
@@ -78,6 +83,11 @@ void Player::BeginContact(b2Contact* contact)
     {
     case FLOOR:
         m_JumpCount = m_MaxJumps;
+        break;
+
+    case HAZARD:
+        m_IsDead = true;
+        m_LivesCount--;
         break;
 
     case COIN:

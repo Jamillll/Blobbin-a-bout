@@ -21,6 +21,7 @@ public:
 		FLOOR = 3,
 		MANAGER = 4,
 		COIN = 5,
+		HAZARD = 6,
 	};
 
 	Entity();

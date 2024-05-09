@@ -7,6 +7,11 @@ Timer::Timer(double* scopeTime)
 	m_StartTime = glfwGetTime();
 }
 
+double Timer::GetTime()
+{
+	return glfwGetTime() - m_StartTime;
+}
+
 Timer::~Timer()
 {
 	*m_ScopeTime = glfwGetTime() - m_StartTime;

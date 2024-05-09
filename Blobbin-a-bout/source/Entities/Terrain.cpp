@@ -1,6 +1,6 @@
 #include "Terrain.h"
 
-void Terrain::Initialise(b2World& world, Vec2 position, Vec2 size, const char* texturePath, bool isFloor)
+void Terrain::Initialise(b2World& world, Vec2 position, Vec2 size, const char* texturePath, Tag tag)
 {
     m_Texture = new Texture(texturePath);
     m_Size = size;
@@ -8,9 +8,8 @@ void Terrain::Initialise(b2World& world, Vec2 position, Vec2 size, const char* t
     b2BodyDef groundBodyDef;
     groundBodyDef.position.Set(position.x, position.y);
     groundBodyDef.userData.pointer = this->m_ID;
-    
-    if (isFloor) m_Tag = FLOOR;
-    else m_Tag = TERRAIN;
+
+    m_Tag = tag;
 
     m_Body = world.CreateBody(&groundBodyDef);
 
@@ -20,14 +19,14 @@ void Terrain::Initialise(b2World& world, Vec2 position, Vec2 size, const char* t
     m_Body->CreateFixture(&groundBox, 0.0f);
 }
 
-Terrain::Terrain(b2World& world, Vec2 position, Vec2 size, const char* texturePath, bool isFloor)
+Terrain::Terrain(b2World& world, Vec2 position, Vec2 size, const char* texturePath, Tag tag)
 {
-    Initialise(world, position, size, texturePath, isFloor);
+    Initialise(world, position, size, texturePath, tag);
 }
 
 Terrain::Terrain(b2World& world, Vec2 position, Vec2 size, const char* texturePath)
 {
-    Initialise(world, position, size, texturePath, false);
+    Initialise(world, position, size, texturePath, TERRAIN);
 }
 
 void Terrain::Update(GLFWwindow* window)

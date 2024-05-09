@@ -38,7 +38,7 @@ int main()
 
     Renderer renderer;
     MyGui myGui(window);
-    renderer.SetClearColour({ 0.5f, 0.75f, 0.9f});
+    renderer.SetClearColour({ 0.5f, 0.75f, 0.9f });
 
     LevelManager levelManager(&renderer, &player);
     levelManager.LoadFirstLevel();
@@ -85,6 +85,16 @@ int main()
                 levelManager.ReloadLevel();
             }
 
+            if (ImGui::Button("Load Lose"))
+            {
+                levelManager.LoadLose();
+            }
+
+            if (ImGui::Button("Load Win"))
+            {
+                levelManager.LoadWin();
+            }
+
             ImGui::Text("Set Level by Index:");
             int levelIndex = levelManager.GetCurrentLevelIndex();
             ImGui::InputInt("##levelIndex", &levelIndex);
@@ -96,6 +106,7 @@ int main()
             ImGui::SeparatorText("Player Info:");
             ImGui::Text("Player Position: %.1f, %.1f", player.m_Body->GetPosition().x, player.m_Body->GetPosition().y);
             ImGui::Text("Player Velocity: %.1f, %.1f", player.m_Body->GetLinearVelocity().x, player.m_Body->GetLinearVelocity().y);
+            ImGui::Text("Player Lives: %d", player.GetLivesCount());
 
             ImGui::SeparatorText("Performance Info:");
             ImGui::Text("Fps (Frames Per Second): %d", frameRate);
@@ -117,7 +128,7 @@ int main()
             ImGui::End();
         }
 
-        renderer.DrawTexture({ 0, 0 }, {32, 20}, &background);
+        renderer.DrawTexture({ 0, 0 }, { 32, 20 }, &background);
         Entity::DrawAll(renderer);
         myGui.Render();
 
